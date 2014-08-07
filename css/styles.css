@@ -1,19 +1,21 @@
-body {
+body.custom {
     background-color: #BEF;
+	padding-top: 15px;
 }
+
 h1, h3 {
-    color: #04A;
     margin-bottom: 0.3em;
     margin-top: 0;
 }
-h2 {
-    color: #07F;
+
+.darkblue {
+    color: #04A;
 }
-img {
-    height: 90%;
-    width: 90%;
-}
+
 .hidden {
-    color: #BEF;
+    color: rgba(0, 0, 0, 0.1);
+}
+
+a {
     text-decoration: none;
 }
