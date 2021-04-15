@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ming-Yuan Jian</title>
+		<link rel="stylesheet" href="css/styles.css">
+
+		<!-- jQuery -->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+		<!-- Bootstrap CSS & JavaScript -->
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/excanvas.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="custom">
+		<div class="container">
+			<h3>Clock</h3>
+			<div class="row" style="background-color: rgb(36, 30, 30); text-align: center">
+				<canvas id="display" width="400" height="150">
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-12">
+					The Segment Display is made by <a href="http://www.3quarks.com/en/SegmentDisplay/">Rüdiger Appel</a>.
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/segment-display.js"></script>
+		<script type="text/javascript">
+			var display = new SegmentDisplay("display");
+			display.pattern         = "##:##:##";
+			display.displayAngle    = 0;
+			display.digitHeight     = 20;
+			display.digitWidth      = 10;
+			display.digitDistance   = 2.5;
+			display.segmentWidth    = 2;
+			display.segmentDistance = 0.3;
+			display.segmentCount    = 7;
+			display.cornerType      = 1;
+			display.colorOn         = "#e95d0f";
+			display.colorOff        = "#401005";
+			display.draw();
+			window.setInterval('animate()', 100);
+			  
+			function animate() {
+				var time    = new Date();
+				var hours   = time.getHours();
+				var minutes = time.getMinutes();
+				var seconds = time.getSeconds();
+				var value   = ((hours < 10) ? ' ' : '') + hours
+					+ ':' + ((minutes < 10) ? '0' : '') + minutes
+					+ ':' + ((seconds < 10) ? '0' : '') + seconds;
+				display.setValue(value);
+			}
+		</script>
+	</body>
+</html>
