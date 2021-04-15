@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Helper - myjian</title>
+    <style>
+      html {
+        background-color: #eee;
+      }
+      input {
+        font-size: 1.6rem;
+        width: 80%;
+      }
+      p {
+        margin: 8px;
+      }
+      button {
+        font-size: 2rem;
+        padding: 10px 30px;
+        color: white;
+        background-color: #0070e0;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="GET" style="display: none;">
+      <p>
+        <input name="before" placeholder="URL before the query"></input>
+      </p>
+      <p>
+        <input name="after" placeholder="URL after the query"></input>
+      </p>
+      <p>
+        <input name="query" placeholder="Query"></input>
+      </p>
+      <p>
+        <button type="submit">GO</button>
+      </p>
+    </form>
+    <script>
+      (function(){
+        const q = new URLSearchParams(location.search);
+        const before = q.get("before"), after = q.get("after"), query = q.get("query");
+        if (before && query) {
+          location.assign(before + query + after);
+        } else {
+          const form = document.forms[0];
+          form.style.display = "block";
+          form.elements["before"].value = before;
+          form.elements["after"].value = after;
+          form.elements["query"].value = query;
+        }
+      })();
+    </script>
+  </body>
+</html>
