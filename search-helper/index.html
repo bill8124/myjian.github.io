@@ -33,14 +33,40 @@
         <input name="query" placeholder="Query"></input>
       </p>
       <p>
+        <input name="replace" placeholder="Replace"></input>
+      </p>
+      <p>
+        <input name="replaceWith" placeholder="Replace with"></input>
+      </p>
+      <p>
         <button type="submit">GO</button>
       </p>
     </form>
     <script>
       (function(){
+        function performReplace(text, oldStr, newStr) {
+          if (!oldStr) {
+            return text;
+          }
+          var startIndex = 0, oldStrIndex = -1;
+          var res = "";
+          while ((oldStrIndex = text.indexOf(oldStr, startIndex)) >= 0) {
+            res += text.substring(startIndex, oldStrIndex) + newStr;
+            startIndex = oldStrIndex + oldStr.length;
+          }
+          res += text.substring(startIndex);
+          return res;
+        }
+
         const q = new URLSearchParams(location.search);
-        const before = q.get("before"), after = q.get("after"), query = q.get("query");
+        function getParam(key) {
+          return q.get(key) || "";
+        }
+        const before = getParam("before"), after = getParam("after");
+        const replace = getParam("replace"), replaceWith = getParam("replaceWith");
+        let query = getParam("query");
         if (before && query) {
+          query = performReplace(query, replace, replaceWith);
           location.assign(before + query + after);
         } else {
           const form = document.forms[0];
@@ -48,6 +74,8 @@
           form.elements["before"].value = before;
           form.elements["after"].value = after;
           form.elements["query"].value = query;
+          form.elements["replace"].value = replace;
+          form.elements["replaceWith"].value = replaceWith;
         }
       })();
     </script>
