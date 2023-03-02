@@ -5,8 +5,13 @@ Ming-Yuan Jian
 -------------
 EXPERIENCE
 -------------
+### Indeed Japan K.K. | Tokyo, Japan
+#### Software Engineer | September, 2022 - present
+* Java, Kotlin, AWS
+* Job seeker-job scoring and ranking system
+
 ### Dropbox Inc. | San Francisco, CA, USA
-#### Software Engineer | Feb 2017 – present
+#### Software Engineer | Feb 2017 – August 2022
 * Python, TypeScript, CSS, Go
 * Web -- Files & Photos front-end, Team Experience
 * Desktop -- Search UI, UI foundation & platform capabilities, People Pages
