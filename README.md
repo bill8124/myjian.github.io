@@ -5,10 +5,10 @@ Ming-Yuan Jian
 -------------
 EXPERIENCE
 -------------
-### Indeed Japan K.K. | Tokyo, Japan
+### Indeed Technologies Japan K.K. | Tokyo, Japan
 #### Software Engineer | September, 2022 - present
 * Java, Kotlin, AWS
-* Job seeker-job scoring and ranking system
+* Score and rank job seekers and jobs using Machine Learning models
 
 ### Dropbox Inc. | San Francisco, CA, USA
 #### Software Engineer | Feb 2017 – August 2022
